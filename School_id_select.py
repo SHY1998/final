@@ -56,12 +56,13 @@ class School_infomation(object):
         # self.page_detail(school_id,page_source)
         # page_source = self.driver.page_source
         for school_id in self.school_ids:
-            time.sleep(1)
             this_url = self.base_url.format(school_id=school_id)
             try:
                 self.driver.get(this_url)
+                time.sleep(1)
                 page_source = self.driver.page_source
                 self.page_detail(school_id, page_source)
+                # self.driver.quit()
             except:
                 print(school_id)
                 print("发生错误")
@@ -70,6 +71,8 @@ class School_infomation(object):
                 with open("problem.txt",'a+',encoding='utf-8') as fp:
                     fp.write(problem)
                 continue
+
+            time.sleep(1)
             # self.driver.get(this_url)
             # page_source = self.driver.page_source
             # self.page_detail(school_id, page_source)
@@ -103,15 +106,16 @@ class School_infomation(object):
                         male_rate or 0,famale_rate or 0,job_rate or 0,graduation_rate or 0,go_abroad_rate or 0,school_id)
 
 
-        school_pics = html.xpath(".//div[@class='swiper-container swiper-thumbs swiper-container-initialized swiper-container-horizontal swiper-container-thumbs']//img/@src")#校园风光
-        self.crest_download(school_name, crest)
-        try:
-            for school_pic in school_pics:
-                print(school_pic)
-                self.image_download(school_name, school_pic)
-        except:
-            print(school_name)
-            print("图片未插入")
+        # school_pics = html.xpath(".//div[@class='swiper-container swiper-thumbs swiper-container-initialized swiper-container-horizontal swiper-container-thumbs']//img/@src")#校园风光
+        # self.crest_download(school_name, crest)
+        # try:
+        #     for school_pic in school_pics:
+        #         print(school_pic)
+        #         self.image_download(school_name, school_pic)
+        #     print("成功插入")
+        # except:
+        #     print(school_name)
+        #     print("图片未插入")
 
 
 
