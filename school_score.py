@@ -52,7 +52,7 @@ class score(object):
                             print("*" * 30)
                             print(current_province)
                             print("单一页面完成")
-                            time.sleep(1)
+                        time.sleep(1)
                     except:
                         self.problemUrl(url)
                         continue

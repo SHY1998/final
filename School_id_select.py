@@ -145,12 +145,12 @@ class School_infomation(object):
 
     def sql_insert(self,home_page,school_phone,school_email,learning_index,life_index,employment_index,composite_score,doctoral_degree,the_master,key_discipline,key_laboratory,male_rate,famale_rate,job_rate,graduation_rate,go_abroad_rate,school_id):
         curcor = self.conn.cursor()
-        #当有where时，只能用update，不能insert
-        sql ="""
-        update school_infomation set home_page=%s,school_phone=%s,school_email=%s,learning_index=%s,life_index=%s,employment_index=%s,composite_score=%s,doctoral_degree=%s,the_master=%s,key_discipline=%s,key_laboratory=%s,male_rate=%s,famale_rate=%s,job_rate=%s,graduation_rate=%s,go_abroad_rate=%s where school_id=%s
-        """
-        curcor.execute(sql,(home_page,school_phone,school_email,learning_index,life_index,employment_index,composite_score,doctoral_degree,the_master,key_discipline,key_laboratory,male_rate,famale_rate,job_rate,graduation_rate,go_abroad_rate,school_id))
-        self.conn.commit()
+        # #当有where时，只能用update，不能insert
+        #         # sql ="""
+        #         # update school_infomation set home_page=%s,school_phone=%s,school_email=%s,learning_index=%s,life_index=%s,employment_index=%s,composite_score=%s,doctoral_degree=%s,the_master=%s,key_discipline=%s,key_laboratory=%s,male_rate=%s,famale_rate=%s,job_rate=%s,graduation_rate=%s,go_abroad_rate=%s where school_id=%s
+        #         # """
+        #         # curcor.execute(sql,(home_page,school_phone,school_email,learning_index,life_index,employment_index,composite_score,doctoral_degree,the_master,key_discipline,key_laboratory,male_rate,famale_rate,job_rate,graduation_rate,go_abroad_rate,school_id))
+                # self.conn.commit()
 
 
 

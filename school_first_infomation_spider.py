@@ -52,23 +52,23 @@ class School_infomation_spider(object):
                                    county_name,dual_class,province_name,nature_name,province_id,city_id,is_985,is_top):
         cursor =self.conn.cursor()
 
-        sql_1 ="""
-            insert into school_infomation(school_id,school_name,heat_rank,heat_total,heat_rank_type,level_name,type_name,belong,is_211,school_type,county_name,dual_class,nature_name,province_id,city_id,is_985,is_top)
-            values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
-        """
-        cursor.execute(sql_1,(id,name,heat_rank,heat_total,heat_rank_type,level_name,type_name,belong,is_211,school_type,county_name,dual_class,nature_name,province_id,city_id,is_985,is_top))
-        self.conn.commit()
-
-        sql_3 ="""
-            insert into city_infomation(city_id,city_name) values (%s,%s) on duplicate KEY UPDATE city_id=city_id
-        """
-        cursor.execute(sql_3,(city_id,city_name))
-        self.conn.commit()
-        sql_2 = """
-                    insert into province_infomation(province_id,province_name) values (%s,%s) on duplicate KEY UPDATE province_id=province_id
-                """
-        cursor.execute(sql_2, (province_id, province_name))
-        self.conn.commit()
+        # sql_1 ="""
+        #     insert into school_infomation(school_id,school_name,heat_rank,heat_total,heat_rank_type,level_name,type_name,belong,is_211,school_type,county_name,dual_class,nature_name,province_id,city_id,is_985,is_top)
+        #     values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+        # """
+        # cursor.execute(sql_1,(id,name,heat_rank,heat_total,heat_rank_type,level_name,type_name,belong,is_211,school_type,county_name,dual_class,nature_name,province_id,city_id,is_985,is_top))
+        # self.conn.commit()
+        #
+        # sql_3 ="""
+        #     insert into city_infomation(city_id,city_name) values (%s,%s) on duplicate KEY UPDATE city_id=city_id
+        # """
+        # cursor.execute(sql_3,(city_id,city_name))
+        # self.conn.commit()
+        # sql_2 = """
+        #             insert into province_infomation(province_id,province_name) values (%s,%s) on duplicate KEY UPDATE province_id=province_id
+        #         """
+        # cursor.execute(sql_2, (province_id, province_name))
+        # self.conn.commit()
         cursor.close()
 
 
